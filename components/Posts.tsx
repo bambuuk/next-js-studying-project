@@ -1,22 +1,25 @@
 'use client';
-import { usePosts } from "@/store";
+import { getAllPosts } from "@/services/getPosts";
 import Link from "next/link";
-import { useEffect } from "react";
-import { shallow } from "zustand/shallow";
+import useSWR from "swr";
+// import { useEffect } from "react";
+// import { usePosts } from "@/store";
+// import { shallow } from "zustand/shallow";
 
 const Posts = () => {
-  const [posts, loading, getAllPosts] = usePosts(
-    (state) => [state.posts, state.loading, state.getAllPosts],
-    shallow
-  );
+  const { data, isLoading } = useSWR('posts', getAllPosts)
+  // const [posts, loading, getAllPosts] = usePosts(
+  //   (state) => [state.posts, state.loading, state.getAllPosts],
+  //   shallow
+  // );
 
-  useEffect(() => {
-    getAllPosts();
-  }, [getAllPosts]);
+  // useEffect(() => {
+  //   getAllPosts();
+  // }, [getAllPosts]);
 
-  return (loading ? <h3>Loading ...</h3> :
+  return (isLoading ? <h3>Loading ...</h3> :
     <ul>
-      {posts.map((post: any) => (
+      {data.map((post: any) => (
         <li key={post.id}>
           <Link href={`/blog/${post.id}`}>{post.title}</Link>
         </li>
