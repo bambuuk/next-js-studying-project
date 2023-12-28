@@ -16,7 +16,7 @@ const PostSearch = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="postSearchForm">
       <input
         type="search"
         placeholder="search"

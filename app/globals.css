@@ -157,13 +157,13 @@ a:hover {
   color: blue;
 }
 
-form {
+.postSearchForm {
   display: flex;
   margin: 40px 0;
   height: 40px;
 }
 
-form input {
+.postSearchForm input {
   width: 100%;
   max-width: 300px;
   font-size: 18px;
@@ -171,8 +171,41 @@ form input {
   height: 100%;
 }
 
-form button {
+.postSearchForm button {
   font-size: 18px;
   height: 100%;
   padding: 0 10px;
+}
+
+.signIn {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.authBtn {
+  font-size: 18px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.signInForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.signInForm input {
+  font-size: 18px;
+  padding: 10px;
+}
+
+.signInForm button {
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
