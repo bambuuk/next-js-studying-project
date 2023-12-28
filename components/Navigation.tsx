@@ -1,4 +1,5 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,6 +14,9 @@ type Props = {
 
 const Navigation = ({ navLinks }: Props) => {
   const pathname = usePathname();
+  const session = useSession();
+
+  console.log(session);
 
   return (
     <>
